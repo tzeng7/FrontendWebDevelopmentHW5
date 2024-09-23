@@ -33,7 +33,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./module5-solution/asignment5-solution-starter
+          source: ./module5-solution/assignment5-solution-starter
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
