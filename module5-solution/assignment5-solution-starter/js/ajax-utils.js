@@ -6,10 +6,17 @@ var ajaxUtils = {};
 
 // Returns an HTTP request object
 function getRequestObject() {
+<<<<<<< HEAD
   if (window.XMLHttpRequest) {
     return (new XMLHttpRequest());
   } 
   else if (window.ActiveXObject) {
+=======
+  if (global.XMLHttpRequest) {
+    return (new XMLHttpRequest());
+  } 
+  else if (global.ActiveXObject) {
+>>>>>>> c029fe6 (testing)
     // For very old IE browsers (optional)
     return (new ActiveXObject("Microsoft.XMLHTTP"));
   } 
