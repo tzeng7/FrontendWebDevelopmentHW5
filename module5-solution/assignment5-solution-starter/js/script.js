@@ -153,11 +153,9 @@ dc.loadMenuCategories = function () {
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
-<<<<<<< HEAD
-=======
+
   console.log(categoryShort);
   console.log("running");
->>>>>>> c029fe6 (testing)
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort + ".json",
     buildAndShowMenuItemsHTML);
@@ -223,10 +221,8 @@ function buildCategoriesViewHtml(categories,
 // Builds HTML for the single category page based on the data
 // from the server
 function buildAndShowMenuItemsHTML (categoryMenuItems) {
-<<<<<<< HEAD
-=======
+
   console.log("running");
->>>>>>> c029fe6 (testing)
   // Load title snippet of menu items page
   $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,
@@ -242,10 +238,8 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
             buildMenuItemsViewHtml(categoryMenuItems,
                                    menuItemsTitleHtml,
                                    menuItemHtml);
-<<<<<<< HEAD
-=======
+
             console.log(menuItemsViewHtml);
->>>>>>> c029fe6 (testing)
           insertHtml("#main-content", menuItemsViewHtml);
         },
         false);
