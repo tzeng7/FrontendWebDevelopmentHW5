@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtml = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -118,7 +119,6 @@ function buildAndShowHomeHTML (categories) {
       //
       chosenCategoryShortName = "'" + chosenCategoryShortName + "'";
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
-      console.log(homeHtmlToInsertIntoMainPage)
 
       // TODO: STEP 4: Insert the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
@@ -349,6 +349,19 @@ function insertItemPortionName(html,
 function random() {
   return Math.floor(Math.random()*(5-1) + 1); 
 }
+
+dc.loadAboutPage = function() {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtml,
+    function(responseText) {
+      document.querySelector("#main-content")
+      .innerHTML = responseText;
+    },
+  false);
+}
+
+
 
 
 global.$dc = dc;
