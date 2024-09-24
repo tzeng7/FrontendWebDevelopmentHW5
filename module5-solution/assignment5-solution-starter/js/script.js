@@ -347,19 +347,39 @@ function insertItemPortionName(html,
 }
 
 function random() {
-  return Math.floor(Math.random()*(5-1) + 1); 
+  return Math.floor(Math.random()*(5) + 1); 
 }
 
 dc.loadAboutPage = function() {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     aboutHtml,
-    function(responseText) {
-      document.querySelector("#main-content")
-      .innerHTML = responseText;
-    },
-  false);
+    buildAboutPage,
+    false);
 }
+
+function buildAboutPage() {
+
+  $ajaxUtils.sendGetRequest(
+    aboutHtml,
+    function(aboutHtml) {
+      var stars = random();
+      aboutHtml += "<span> " + stars + "-star rating";
+      console.log(stars);
+      for (let i = 1; i < 6; i++) {
+        if (i <= stars) {
+          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
+        } else {
+          aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+        }
+      }
+      insertHtml("#main-content", aboutHtml);
+      console.log(aboutHtml);
+    },
+    false);
+  }
+
+
 
 
 
